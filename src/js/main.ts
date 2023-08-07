@@ -1,5 +1,7 @@
 import './../css/style.css'
 import Toast from './Toast.ts'
+// import '@danidoble/toast/dist/toast.css'
+// import Toast from '@danidoble/toast'
 
 let time = 2e3;
 for (let i = 0; i < 2; i++) {

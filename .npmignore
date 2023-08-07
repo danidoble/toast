@@ -3,3 +3,4 @@ public
 dist/index.html
 .gitignore
 .idea
+*.tgz

@@ -4,27 +4,27 @@
 npm install @danidoble/toast
 ```
 
-Import as module 
+Import as module
 
 ```javascript
 import '@danidoble/toast/dist/assets/toast.css'
 import Toast from '@danidoble/toast';
 ```
 
-Or import as module but in browser
+Using node_modules folder directly
 
 ```html
 
-<script type="module">
-    import Toast from 'https://www.jsdelivr.com/package/npm/@danidoble/toast@latest/+esm'
-</script>
+<script type="module" crossorigin src="./node_modules/@danidoble/toast/dist/toast.js"></script>
+<link rel="stylesheet" href="./node_modules/@danidoble/toast/dist/toast.css">
 ```
 
 Or with CDN
 
 ```html
 <!-- include toast -->
-<script type="module" crossorigin src="https://www.jsdelivr.com/package/npm/@danidoble/toast@latest/dist/toast.js"></script>
+<script type="module" crossorigin
+        src="https://www.jsdelivr.com/package/npm/@danidoble/toast@latest/dist/toast.js"></script>
 <link rel="stylesheet" href="https://www.jsdelivr.com/package/npm/@danidoble/toast@latest/dist/toast.css">
 ```
 
@@ -68,7 +68,7 @@ new Toast({
 
 if you want to customize your own template to show toast, just sent in object of toast
 .
-Of course is possible custom only the icon, but in this case we will customize both of them.  
+Of course is possible custom only the icon, but in this case we will customize both of them.
 
 ```javascript
 let my_template = `

@@ -1,0 +1,107 @@
+.dd-toast-icon-success {
+    @apply w-6 h-6 mt-0.5 text-green-500;
+}
+
+.dd-toast-icon-error {
+    @apply w-6 h-6 mt-0.5 text-red-500;
+}
+
+.dd-toast-icon-info {
+    @apply w-6 h-6 mt-0.5 text-blue-500;
+}
+
+.dd-toast-icon-warning {
+    @apply w-6 h-6 mt-0.5 text-yellow-500;
+}
+
+.dd-toast-icon-default {
+    @apply w-6 h-6 mt-0.5 text-gray-500;
+}
+
+.dd-toast-flex-template {
+    @apply flex items-center p-4;
+}
+
+.dd-toast-flex-template-shrink-0 {
+    @apply flex-shrink-0;
+}
+
+.dd-toast-ml-3 {
+    @apply ml-3;
+}
+
+.dd-toast-text-message {
+    @apply text-sm text-gray-700;
+}
+
+.dd-toast-timer {
+    @apply w-auto h-1;
+}
+
+.dd-toast.theme {
+    @apply w-full border rounded-md shadow-lg;
+}
+
+.dd-toast.theme.default {
+    @apply bg-white;
+}
+
+.dd-toast.theme.default-timer {
+    @apply bg-gray-200;
+}
+
+.dd-toast.theme.success {
+    @apply border-green-200/50 shadow-green-100 bg-green-50;
+}
+
+.dd-toast.theme.success-timer {
+    @apply bg-green-300/75;
+}
+
+.dd-toast.theme.warning {
+    @apply border-yellow-200/50 shadow-yellow-100 bg-yellow-50;
+}
+
+.dd-toast.theme.warning-timer {
+    @apply bg-yellow-300/75;
+}
+
+.dd-toast.theme.error {
+    @apply border-red-200/50 shadow-red-100 bg-red-50;
+}
+
+.dd-toast.theme.error-timer {
+    @apply bg-red-300/75;
+}
+
+.dd-toast.theme.info {
+    @apply border-blue-200/50 shadow-blue-100 bg-blue-50;
+}
+
+.dd-toast.theme.info-timer {
+    @apply bg-blue-300/75;
+}
+
+.dd-toast-position {
+    @apply fixed w-full max-w-xs grid grid-cols-1 gap-y-1;
+}
+
+.dd-toast-position.top-start {
+    @apply top-5 left-5;
+}
+
+.dd-toast-position.top-end {
+    @apply top-5 right-5;
+}
+
+.dd-toast-position.bottom-start {
+    @apply bottom-5 left-5;
+}
+
+.dd-toast-position.bottom-end {
+    @apply bottom-5 right-5;
+}
+
+.dd-toast-pointer {
+    @apply cursor-pointer;
+}

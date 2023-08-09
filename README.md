@@ -24,8 +24,8 @@ Or with CDN
 ```html
 <!-- include toast -->
 <script type="module" crossorigin
-        src="https://www.jsdelivr.com/package/npm/@danidoble/toast@latest/dist/toast.js"></script>
-<link rel="stylesheet" href="https://www.jsdelivr.com/package/npm/@danidoble/toast@latest/dist/toast.css">
+        src="https://cdn.jsdelivr.net/gh/danidoble/toast@master/dist/toast.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/danidoble/toast@master/dist/toast.css">
 ```
 
 ### Make a toast using parameters

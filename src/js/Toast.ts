@@ -693,3 +693,7 @@ export default class Toast implements ToastInterface {
         return this.#_theme;
     }
 }
+
+export function toast(obj: null | object | string = null, type: string = "success", duration: number = 5e3) {
+    return new Toast(obj, type, duration);
+}

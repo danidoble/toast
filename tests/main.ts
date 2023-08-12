@@ -1,5 +1,5 @@
-import './../css/style.css'
-import Toast from './Toast.ts'
+import '../src/css/style.css'
+import Toast, {toast} from '../src/js/Toast.ts'
 // import '@danidoble/toast/dist/toast.css'
 // import Toast from '@danidoble/toast'
 
@@ -11,7 +11,10 @@ for (let i = 0; i < 2; i++) {
     new Toast({message: 'hola', type: 'info', position: 'bottom-start', duration: time});
     new Toast({message: 'hola', type: 'warning', position: 'bottom-start', duration: time});
 }
+// @ts-ignore
 console.log(Toast.getCurrentToasts())
 
 // @ts-ignore
 window.Toast = Toast;
+// @ts-ignore
+window.toast = toast;

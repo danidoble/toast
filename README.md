@@ -1,3 +1,13 @@
+### Donations
+If like my work you can buy me a coffee or maybe a toast :D
+[donate](https://donate.stripe.com/8wMdUhbnR1LS1zy8ww)
+
+# Full documentation
+
+Visit the [documentation](https://toast.danidoble.com/) website for more information.
+
+![Toast](https://raw.githubusercontent.com/danidoble/toast/main/src/img/toast.png)
+
 # Toast Installation
 
 ```bash

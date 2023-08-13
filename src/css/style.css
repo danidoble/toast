@@ -30,6 +30,9 @@
     @apply ml-3;
 }
 
+.dd-toast-text-title {
+    @apply text-base text-gray-900;
+}
 .dd-toast-text-message {
     @apply text-sm text-gray-700;
 }
@@ -39,7 +42,7 @@
 }
 
 .dd-toast.theme {
-    @apply w-full border rounded-md shadow-lg;
+    @apply w-full border rounded-lg shadow-md overflow-hidden max-h-[90vh];
 }
 
 .dd-toast.theme.default {
@@ -83,7 +86,7 @@
 }
 
 .dd-toast-position {
-    @apply fixed w-full max-w-xs grid grid-cols-1 gap-y-1;
+    @apply fixed w-full max-w-xs grid grid-cols-1 gap-y-1.5;
 }
 
 .dd-toast-position.top-start {
@@ -104,4 +107,8 @@
 
 .dd-toast-pointer {
     @apply cursor-pointer;
+}
+
+.dd-toast-media {
+    @apply p-0 m-0 flex items-end w-full
 }

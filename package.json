@@ -1,6 +1,6 @@
 {
   "name": "@danidoble/toast",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "description": "Make toast, as how must to be... simple",
   "type": "module",
   "private": false,
@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/danidoble/toast/issues"
   },
-  "homepage": "https://github.com/danidoble/toast#readme",
+  "homepage": "https://toast.danidoble.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danidoble/toast.git"

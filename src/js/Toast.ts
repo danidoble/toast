@@ -32,7 +32,7 @@ export default class Toast implements ToastInterface {
      * Default template for toast
      * @private
      */
-    #_template: string = `<div class="{{color}}" role="alert"><div class="dd-toast-flex-template"><div class="dd-toast-flex-template-shrink-0">{{icon}}</div><div class="dd-toast-ml-3"><div class="dd-toast-text-message">{{message}}</div></div></div>{{timer}}</div>`;
+    #_template: string = `<div class="{{color}}" role="alert"><div class="dd-toast-flex-template"><div class="dd-toast-flex-template-shrink-0">{{icon}}</div><div class="dd-toast-ml-3"><div class="dd-toast-text-title">{{title}}</div><div class="dd-toast-text-message">{{message}}</div></div></div>{{timer}}<div class="dd-toast-media">{{media}}</div></div>`;
     /**
      * Default template for timer
      * @private
@@ -43,6 +43,16 @@ export default class Toast implements ToastInterface {
      * @private
      */
     #_message: string = "";
+    /**
+     * Title to show in toast
+     * @private
+     */
+    #_title: string | null = null;
+    /**
+     * Media to show in toast
+     * @private
+     */
+    #_media: string | null = null;
     /**
      * Type of toast
      * ```success```,```error```,```warning```,```info```,```default```,
@@ -189,6 +199,11 @@ export default class Toast implements ToastInterface {
      */
     #_info_timer_classes = 'dd-toast theme info-timer';
     /**
+     * Listener of user
+     * @private
+     */
+    #_userListeners: Map<string, any> = new Map();
+    /**
      * Limit of toast to show at same time
      * @private
      */
@@ -248,6 +263,8 @@ export default class Toast implements ToastInterface {
      * @param {boolean} showProgressBar
      * @param {boolean} closeByTimer
      * @param {number} limitToast
+     * @param {media} media
+     * @param {title} title
      * @private
      */
     #assignObject(
@@ -263,9 +280,13 @@ export default class Toast implements ToastInterface {
             theme = null,
             showProgressBar = true,
             closeByTimer = true,
+            media = null,
+            title = null,
         }
     ) {
         this.#_message = message;
+        this.#_title = title;
+        this.#_media = media;
         this.#_type = type;
         this.#_duration = duration;
         this.#_position = position;
@@ -289,6 +310,8 @@ export default class Toast implements ToastInterface {
     getObject() {
         return {
             message: this.#_message,
+            title: this.#_title,
+            media: this.#_media,
             type: this.#_type,
             duration: this.#_duration,
             position: this.#_position,
@@ -338,7 +361,9 @@ export default class Toast implements ToastInterface {
         }
         template = template
             .replace("{{icon}}", this.#setIcon())
+            .replace("{{title}}", this.#_title ?? '')
             .replace("{{message}}", this.#_message)
+            .replace("{{media}}", this.#_media ?? '')
             .replace("{{color}}", this.#_classes)
             .replace("{{color-timer}}", this.#_timer_classes)
             .replace("{{id-timer}}", `id="${this.#danidoble_id}-timer-${this.#id_toast}"`);
@@ -407,6 +432,14 @@ export default class Toast implements ToastInterface {
         });
     }
 
+    async #addUserListeners() {
+        let el: HTMLElement | null = this.getElement();
+
+        this.#_userListeners.forEach((listener) => {
+            el?.addEventListener(listener.name, listener.callback);
+        });
+    }
+
     async #animateExit() {
         let div = document.getElementById(`${this.#danidoble_id}-${this.#id_toast}`);
         if (div) {
@@ -418,6 +451,7 @@ export default class Toast implements ToastInterface {
         }
         return new Promise<void>(resolve => {
             setTimeout(() => {
+                div?.dispatchEvent(new Event('closed'));
                 resolve();
             }, 600);
         });
@@ -521,6 +555,7 @@ export default class Toast implements ToastInterface {
         await this.#append(this.#id_toast);
         let div = this.#makeToastHTML();
         parent.append(div);
+        await this.#addUserListeners();
         await this.#animateEntrance();
         this.#timers[this.#id_toast] = this.#_duration;
         if (this.#_closeByTimer) {
@@ -550,6 +585,13 @@ export default class Toast implements ToastInterface {
                     resolve(true);
                 }
             }, 50);
+        });
+    }
+
+    on(name: string, callback: EventListenerOrEventListenerObject): void {
+        this.#_userListeners.set(uuidv4(), {
+            name: name,
+            callback: callback,
         });
     }
 
@@ -601,12 +643,28 @@ export default class Toast implements ToastInterface {
         return document.getElementById(this.getFullContainerId());
     }
 
+    set title(title: string | null) {
+        this.#_title = title;
+    }
+
+    get title() {
+        return this.#_title;
+    }
+
     set message(message: string) {
         this.#_message = message;
     }
 
     get message() {
         return this.#_message;
+    }
+
+    set media(media: string | null) {
+        this.#_media = media;
+    }
+
+    get media() {
+        return this.#_media;
     }
 
     set type(type: string) {

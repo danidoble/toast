@@ -1,6 +1,6 @@
 {
   "name": "@danidoble/toast",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make toast, as how must to be... simple",
   "type": "module",
   "private": false,

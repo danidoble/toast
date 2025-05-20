@@ -6,7 +6,7 @@ If like my work you can buy me a coffee or maybe a toast :D
 
 Visit the [documentation](https://toast.danidoble.com/) website for more information.
 
-![Toast](https://raw.githubusercontent.com/danidoble/toast/main/src/img/toast.png)
+![Toast](https://raw.githubusercontent.com/danidoble/toast/main/lib/img/toast.png)
 
 # Toast Installation
 
@@ -17,7 +17,7 @@ npm install @danidoble/toast
 Import as module
 
 ```javascript
-import '@danidoble/toast/dist/toast.css'
+import '@danidoble/toast/toast.css'
 import Toast from '@danidoble/toast';
 ```
 

@@ -42,6 +42,6 @@
       "import": "./dist/toast.js",
       "require": "./dist/toast.umd.cjs"
     },
-    "./style.css": "./dist/toast.css"
+    "./toast.css": "./dist/toast.css"
   }
 }

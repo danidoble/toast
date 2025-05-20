@@ -17,7 +17,7 @@ npm install @danidoble/toast
 Import as module
 
 ```javascript
-import '@danidoble/toast/dist/assets/toast.css'
+import '@danidoble/toast/dist/toast.css'
 import Toast from '@danidoble/toast';
 ```
 

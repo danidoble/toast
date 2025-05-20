@@ -1,14 +1,16 @@
-import {defineConfig} from 'vite';
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { defineConfig } from 'vite'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-    build: {
-        rollupOptions: {
-            output: {
-                entryFileNames: `toast.js`,
-                chunkFileNames: `toast.js`,
-                assetFileNames: `toast.[ext]`
-            }
-        },
-        chunkSizeWarningLimit: 500,
-    }
-});
+  build: {
+    emptyOutDir: false,
+    lib: {
+      entry: resolve(__dirname, 'lib/main.ts'),
+      name: 'Toast',
+      fileName: 'toast',
+    },
+  },
+})

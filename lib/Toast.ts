@@ -1,8 +1,7 @@
-// @ts-ignore
-import {v4 as uuidv4} from 'uuid';
 import {ToastInterface} from "./ToastInterface.ts";
+import './css/style.css'
 
-export default class Toast implements ToastInterface {
+export class Toast implements ToastInterface {
     /**
      * Success icon
      * @private
@@ -220,7 +219,7 @@ export default class Toast implements ToastInterface {
     static #next_toast: Map<string, string> = new Map();
 
     constructor(obj: null | object | string = null, type: string = "success", duration: number = 5e3) {
-        this.#id_toast = 'dt-' + uuidv4();
+        this.#id_toast = 'dt-' + crypto.randomUUID();
         if (obj === null) {
             return this;
         }
@@ -589,7 +588,7 @@ export default class Toast implements ToastInterface {
     }
 
     on(name: string, callback: EventListenerOrEventListenerObject): void {
-        this.#_userListeners.set(uuidv4(), {
+        this.#_userListeners.set(crypto.randomUUID(), {
             name: name,
             callback: callback,
         });
